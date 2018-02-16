@@ -310,14 +310,14 @@ if __name__ == '__main__':
                 a2 = send_nbns(random_hostname(), args.netbios, args.timeout)
                 if a2:
                     if a1.addrs[0] == a2.addrs[0]:
-                        print('[!] Responder detected with NetBIOS')
+                        print('[!] Responder detected with NetBIOS. Poisoned answer resolves to '+a1.addrs[0])
         elif args.llmnr:
             a1 = send_llmnr(random_hostname(), args.timeout)
             if a1:
                 a2 = send_llmnr(random_hostname(), args.timeout)
                 if a2:
                     if a1.addrs[0] == a2.addrs[0]:
-                        print('[!] Responder detected with LLMNR')
+                        print('[!] Responder detected with LLMNR. Poisoned answer resolves to '+a1.addrs[0])
     if args.hostname:
         if args.netbios:
             a = send_nbns(args.hostname, args.netbios, args.timeout, args.qtype, args.qclass, args.service)
